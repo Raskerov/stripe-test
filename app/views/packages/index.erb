@@ -1,13 +1,8 @@
 <div>
   <h1>Listing packages</h1>
-  <div>
-      <div>
-        <div>Name</div>
-        <div>Pricing</div>
-      </div>
-    <div>
+  <div class="packages">
     <% @packages.each do |package| %>
-      <div>
+      <div class="package">
         <div><%= package.name %></div>
         <div><%= package.formatted_price %> $/mo</div>
         <div>
@@ -18,6 +13,5 @@
         </div>
       </div>
     <% end %>
-    </div>
   </div>
 </div>

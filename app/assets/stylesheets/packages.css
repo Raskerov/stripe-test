@@ -1,0 +1,24 @@
+h1 {
+  color: #333;
+  font-size: 2em;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.packages {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.package {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 30%;
+}
