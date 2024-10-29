@@ -1,0 +1,23 @@
+<div>
+  <h1>Listing packages</h1>
+  <div>
+      <div>
+        <div>Name</div>
+        <div>Pricing</div>
+      </div>
+    <div>
+    <% @packages.each do |package| %>
+      <div>
+        <div><%= package.name %></div>
+        <div><%= package.formatted_price %> $/mo</div>
+        <div>
+          <%= form_tag purchase_checkouts_path,  method: :post, data: { turbo: false } do %>
+            <input type="hidden" name="price_id" value="<%= Rails.application.credentials.dig(:stripe, :packages, package.name.downcase.to_sym) %>" />
+            <%= submit_tag "Subscribe", data: { disable_with: "Hold please..." } %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
