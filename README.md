@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Ruby version
+* 3.3.5
 
-Things you may want to cover:
+#### Database creation
+- `rails db:create`
+- `rails db:migrate`
 
-* Ruby version
+#### Database initialization
+1. Add stripe keys and stripe package prices ids to `Rails.credentials` by using
+```rails credentials:edit``` with following format:
+```
+stripe:
+  secret_key: sk_test_XXXXXXXXXXXXXX
+  public_key: pk_test_XXXXXXXXXXXXXX
+  webhook_signing_secret: whsec_XXXXXXXXXXXXXX
+  packages:
+    basic: price_XXXXXXXXXXXX
+    pro: price_XXXXXXXXXXXXX
+    enterprise: price_XXXXXXXXXXXXX
+```
+In that way stripe ids are hidden from the code and can be easily changed when needed. They will be accessed via `Package.name` as key.
 
-* System dependencies
+2. `rails db:seed`
 
-* Configuration
+#### Run application
+`rails s`
 
-* Database creation
+Home page will be available at `http://localhost:3000`
+On main page you will have access to all packages and you can subscribe to them.
+You can subscribe to multiple packages at once.
 
-* Database initialization
+You can test checkouts with stripe test card numbers: https://docs.stripe.com/testing?testing-method=card-numbers#cards
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can test webhooks (which are not working properly atm) by using stripe cli: https://docs.stripe.com/stripe-cli
