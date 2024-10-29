@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_29_184240) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_29_211527) do
   create_table "packages", force: :cascade do |t|
     t.string "name", null: false
-    t.string "stripe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -24,5 +24,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_29_184240) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_id"
   end
 end

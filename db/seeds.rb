@@ -8,6 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 User.create!(email: 'tester@test.test', first_name: 'Tester', last_name: 'Testowy')
-Package.create!(name: 'Basic', stripe_id: Rails.application.credentials.dig(:stripe, :packages, :basic))
-Package.create!(name: 'Pro', stripe_id: Rails.application.credentials.dig(:stripe, :packages, :pro))
-Package.create!(name: 'Enterprise', stripe_id: Rails.application.credentials.dig(:stripe, :packages, :enterprise))
+Package.create!(name: 'Basic', price: 1000)
+Package.create!(name: 'Pro', price: 5000)
+Package.create!(name: 'Enterprise', price: 50000)
